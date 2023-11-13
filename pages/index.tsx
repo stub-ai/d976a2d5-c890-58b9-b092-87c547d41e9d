@@ -1,13 +1,22 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import React from 'react';
+import Login from '../components/Login';
+import Signup from '../components/Signup';
+import TodoList from '../components/TodoList';
 
-const inter = Inter({ subsets: ['latin'] })
+const Home = () => {
+  // Replace with actual authentication state
+  const isAuthenticated = false;
 
-export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-    </main>
-  )
-}
+  if (!isAuthenticated) {
+    return (
+      <div>
+        <Login />
+        <Signup />
+      </div>
+    );
+  }
+
+  return <TodoList />;
+};
+
+export default Home;
